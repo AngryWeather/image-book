@@ -1,0 +1,11 @@
+{% extends "imagebook/base.html" %}
+{% block content %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }}">
+  {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+{% include "users/basic_form.html" with title="Log In" button_context="Log In" %}
+{% endblock content %}
