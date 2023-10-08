@@ -13,3 +13,4 @@ class Image(models.Model):
 class Comment(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField(max_length=255)
+    image = models.ForeignKey(User, on_delete=models.CASCADE)
