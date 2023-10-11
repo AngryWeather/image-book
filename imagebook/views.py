@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.views.generic import CreateView
 
-# Create your views here.
+from .models import Image
+
+
+class ImageCreateView(CreateView):
+    model = Image
+    template_name = 'imagebook/image_create.html'
+    fields = ['title', 'image']
