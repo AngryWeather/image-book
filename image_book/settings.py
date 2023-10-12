@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'imagebook.apps.ImagebookConfig',
+    'image.apps.ImageConfig',
     'users.apps.UsersConfig',
     'django.contrib.admin',
     'django_bootstrap5',
@@ -48,7 +48,7 @@ INSTALLED_APPS = [
 NOSE_ARGS = [
     '--with-coverage',
     '--cover-html',
-    '--cover-package=imagebook, users',
+    '--cover-package=image, users',
 ]
 
 MIDDLEWARE = [

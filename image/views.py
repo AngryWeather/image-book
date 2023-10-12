@@ -5,5 +5,5 @@ from .models import Image
 
 class ImageCreateView(CreateView):
     model = Image
-    template_name = 'imagebook/image_create.html'
+    template_name = 'image/image_create.html'
     fields = ['title', 'image']
