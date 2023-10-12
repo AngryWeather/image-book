@@ -39,7 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
-    'crispy_bootstrap5'
+    'crispy_bootstrap5',
+    'django_nose',
+]
+
+# TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+#
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-html',
+    '--cover-package=imagebook, users',
 ]
 
 MIDDLEWARE = [
@@ -60,6 +69,7 @@ TEMPLATES = [
         'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
+            'debug': True,
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
