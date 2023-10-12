@@ -40,15 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'crispy_bootstrap5',
-    'django_nose',
-]
-
-# TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-#
-NOSE_ARGS = [
-    '--with-coverage',
-    '--cover-html',
-    '--cover-package=image, users',
 ]
 
 MIDDLEWARE = [
