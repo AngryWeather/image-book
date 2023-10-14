@@ -8,3 +8,7 @@ class ImageCreateView(LoginRequiredMixin, CreateView):
     model = Image
     template_name = 'image/image_create.html'
     fields = ['title', 'image']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
