@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView, DetailView
 
 from .models import Image
 
@@ -12,3 +12,11 @@ class ImageCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+
+class ImageListView(ListView):
+    model = Image
+
+
+class ImageDetailView(DetailView):
+    model = Image

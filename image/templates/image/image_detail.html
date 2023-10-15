@@ -1,0 +1,11 @@
+{% extends "image/base.html" %}
+{% block content %}
+<article class="col col-lg-6 mx-auto">
+  <h2>{{ object.title }}</h2>
+  <div class="mb-3 ">
+    <a href="#">{{ object.author }}</a>
+    <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+  </div>
+  <img class="img-fluid" src="{{ object.image.url }}" alt="">
+</article>
+{% endblock content %}
