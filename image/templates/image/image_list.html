@@ -12,8 +12,9 @@
         </div>
         <a href="{% url 'image-detail' image.id %}" class="stretched-link"></a>
       </div>
-      <img loading="lazy" style="height: 300px;" class="card-img-bottom object-fit-cover" src="{{ image.image.url }}"
-           alt="">
+      <img loading="lazy" style="height: 300px;" class="card-img-bottom object-fit-cover"
+           src="{{ image.image.url }}"
+           alt="{{ image.title }}">
     </article>
     {% endfor %}
   </div>
