@@ -16,6 +16,7 @@ class ImageCreateView(LoginRequiredMixin, CreateView):
 
 class ImageListView(ListView):
     model = Image
+    ordering = ['-date_posted']
 
 
 class ImageDetailView(DetailView):
