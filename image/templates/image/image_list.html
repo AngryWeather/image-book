@@ -3,13 +3,14 @@
 <div class="d-flex mx-auto w-75">
   <div class="row justify-content-center">
     {% for image in object_list %}
-    <article style="width: 300px;" class="card col-md-4 col-lg-4 my-3 mx-3 p-0 h-md-25">
+    <article style="width: 300px;" class="card col-md-4 mx-md-1 col-lg-4 my-3 mx-3 p-0 h-md-25">
       <div class="card-body">
         <h1 class="h5 card-title">{{ image.title }}</h1>
         <div class="mb-1">
           <a href="#">{{ image.author }}</a>
           <small class="text-muted">{{ image.date_posted|date:"F d, Y" }}</small>
         </div>
+        <a href="{% url 'image-detail' image.id %}" class="stretched-link"></a>
       </div>
       <img style="height: 300px;" class="card-img-bottom object-fit-cover" src="{{ image.image.url }}" alt="">
     </article>
