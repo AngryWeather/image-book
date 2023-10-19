@@ -10,7 +10,10 @@
   <img class="img-fluid" src="{{ object.image.url }}" alt="">
 </article>
 {% include "users/basic_form.html" with button_context="Comment" %}
-<section>
-  <h3></h3>
+<section class="col col-lg-6 mx-auto">
+  <p class="fw-bold">{{ object.comment_set.all|length }}
+    COMMENT {{ object.comment_set.all|length|pluralize }}</p>
+  <hr>
+ 
 </section>
 {% endblock content %}
