@@ -12,8 +12,15 @@
 {% include "users/basic_form.html" with button_context="Comment" %}
 <section class="col col-lg-6 mx-auto">
   <p class="fw-bold">{{ object.comment_set.all|length }}
-    COMMENT {{ object.comment_set.all|length|pluralize }}</p>
+    COMMENT{{ object.comment_set.all|length|pluralize:"S" }}</p>
   <hr>
- 
+
+  {% for comment in object.comment_set.all %}
+  <div class="container p-0">
+    <a class="text-success small fw-bold text-decoration-none" href="#">{{ comment.comment_author }}</a>
+    <p class="pt-2">{{ comment.content }}</p>
+  </div>
+  <hr>
+  {% endfor %}
 </section>
 {% endblock content %}
