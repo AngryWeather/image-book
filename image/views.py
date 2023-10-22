@@ -33,13 +33,18 @@ class ImageDetailView(FormMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super(ImageDetailView, self).get_context_data(**kwargs)
         context['form'] = self.get_form()
+
+        if not self.request.user.is_authenticated:
+            context['form'].fields['content'].disabled = True
+            context['form'].fields['content'].widget.attrs['placeholder'] = 'Log in to leave a comment'
+
         return context
 
     def post(self, request, *args, **kwargs):
+        form = self.get_form()
         if not request.user.is_authenticated:
             return HttpResponseForbidden()
         self.object = self.get_object()
-        form = self.get_form()
         if form.is_valid():
             form.instance.comment_author = self.request.user
             form.instance.comment_image = self.object
