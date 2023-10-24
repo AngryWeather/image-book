@@ -8,29 +8,37 @@
   <title>ImageBook</title>
 </head>
 <body>
-<nav class="navbar text-bg-dark border-bottom">
-  <div class="container-fluid">
-    <a href="{% url 'image-list' %}" class="navbar-brand">ImageBook</a>
-    <a href="{% url 'image-create' %}" class="me-auto nav-item nav-link my-auto text-nowrap">
-      <button class="btn btn-success d-flex align-items-center me-auto ">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus"
-             viewBox="0 0 16 16">
-          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-        </svg>
-        New Image
-      </button>
-    </a>
-    <form class="d-flex">
-      {% if user.is_authenticated %}
-      <a href="#" class="nav-item nav-link my-auto mx-2">{{ user.username }}</a>
-      <a href="{% url 'user-logout' %}" class="nav-item nav-link my-auto mx-2">Logout</a>
-      {% else %}
-      <a href="{% url 'user-login' %}" class="nav-item nav-link my-auto mx-2">Login</a>
-      <a href="{% url 'user-register' %}" class="nav-item nav-link my-auto mx-2">Register</a>
-      {% endif %}
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-light" type="submit">Search</button>
-    </form>
+<nav class="navbar text-bg-dark navbar-expand-lg border-bottom align-items-center">
+  <a href="{% url 'image-list' %}" class="navbar-brand ms-2 ">ImageBook</a>
+  <a href="{% url 'image-create' %}" class="text-decoration-none my-auto ms-auto me-2">
+    <button class="btn btn-success d-flex align-items-center me-auto ms-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus"
+           viewBox="0 0 16 16">
+        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+      </svg>
+      New Image
+    </button>
+  </a>
+  <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="container-lg navbar-nav me-auto mb-2 mb-lg-0">
+      <div class="d-flex flex-column flex-lg-row ms-lg-auto">
+        {% if user.is_authenticated %}
+        <a href="#" class="nav-item nav-link my-auto mx-2">{{ user.username }}</a>
+        <a href="{% url 'user-logout' %}" class="nav-item nav-link my-auto mx-2">Logout</a>
+        {% else %}
+        <a href="{% url 'user-login' %}" class="nav-item nav-link my-auto ms-2">Login</a>
+        <a href="{% url 'user-register' %}" class="nav-item nav-link my-auto mx-2">Register</a>
+        {% endif %}
+        <form class="d-flex ms-2">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
   </div>
 </nav>
 {% block content %}
