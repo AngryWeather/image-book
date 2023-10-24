@@ -1,26 +1,28 @@
 {% extends "image/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-<article class="col col-lg-6 mx-auto pt-3">
-  <h2>{{ object.title }}</h2>
-  <div class="mb-3 ">
-    <a href="#">{{ object.author }}</a>
-    <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
-  </div>
-  <img class="img-fluid" src="{{ object.image.url }}" alt="">
-</article>
-{% include "users/basic_form.html" with button_context="Comment" %}
-<section class="col col-lg-6 mx-auto">
-  <p class="fw-bold">{{ object.comment_set.all|length }}
-    COMMENT{{ object.comment_set.all|length|pluralize:"S" }}</p>
-  <hr>
+<main class="col col-lg-6 mx-auto pt-3 px-lg-0 px-2">
+  <article>
+    <h2>{{ object.title }}</h2>
+    <div class="mb-3 ">
+      <a href="#">{{ object.author }}</a>
+      <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+    </div>
+    <img class="img-fluid" src="{{ object.image.url }}" alt="">
+  </article>
+  {% include "users/basic_form.html" with button_context="Comment" %}
+  <section>
+    <p class="fw-bold">{{ object.comment_set.all|length }}
+      COMMENT{{ object.comment_set.all|length|pluralize:"S" }}</p>
+    <hr>
 
-  {% for comment in object.comment_set.all %}
-  <div class="container p-0">
-    <a class="text-success small fw-bold text-decoration-none" href="#">{{ comment.comment_author }}</a>
-    <p class="pt-2">{{ comment.content }}</p>
-  </div>
-  <hr>
-  {% endfor %}
-</section>
+    {% for comment in object.comment_set.all %}
+    <div class="p-0">
+      <a class="text-success small fw-bold text-decoration-none" href="#">{{ comment.comment_author }}</a>
+      <p class="pt-2">{{ comment.content }}</p>
+    </div>
+    <hr>
+    {% endfor %}
+  </section>
+</main>
 {% endblock content %}

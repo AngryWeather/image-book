@@ -10,4 +10,3 @@ class CreateCommentForm(ModelForm):
         widgets = {
             'content': TextInput(attrs={'size': 2})
         }
-       
