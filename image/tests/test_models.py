@@ -1,13 +1,12 @@
-from unittest import TestCase
-
 from django.contrib.auth.models import User
+from django.test import TestCase
 
 from image.models import Image
 
 
 class ImageModelTest(TestCase):
-    @classmethod
-    def setUpTestData(cls):
+
+    def setUp(self):
         author = User.objects.create(username='TestUser', email='testuser@email.com', password='password321')
         Image.objects.create(title='Test Image', author=author, image='test.png')
 
