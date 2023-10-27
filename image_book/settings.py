@@ -30,7 +30,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['onrender.com']
+ALLOWED_HOSTS = ['imagebook-ho6f.onrender.com']
 
 # Application definition
 
