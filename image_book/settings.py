@@ -30,7 +30,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['imagebook-ho6f.onrender.com']
+ALLOWED_HOSTS = ['localhost', 'imagebook-ho6f.onrender.com']
 
 # Application definition
 
@@ -141,9 +141,14 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = 'media/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
+# STORAGES = {
+#     # ...
+#     "staticfiles": {
+#         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+#     },
+# }
 LOGIN_URL = 'user-login'
 LOGIN_REDIRECT_URL = 'image-list'
