@@ -3,7 +3,7 @@ Brotli==1.1.0
 coverage==7.3.2
 crispy-bootstrap5==0.7
 dj-database-url==2.1.0
-Django==4.2.5
+Django==4.2.7
 django-bootstrap5==23.3
 django-coverage-plugin==3.1.0
 django-crispy-forms==2.0
