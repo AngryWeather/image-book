@@ -53,7 +53,5 @@ class ImageDetailView(FormMixin, DetailView):
             return self.form_invalid(form)
 
     def form_valid(self, form):
-        # Here, we would record the user's interest using the message
-        # passed in form.cleaned_data['message']
         form.save()
         return super(ImageDetailView, self).form_valid(form)
