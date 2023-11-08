@@ -24,6 +24,15 @@ python manage.py runserver
 - Bootstrap5
 - Tests: Django's unittest
 
+## To Do
+- Profile page
+- Edit and delete posted images
+- Edit and delete comments
+- Reply to comments
+- Search for specific post
+- Follow favorite users
+- Notifications
+
 ## Features
 ### Register
 ![image](https://github.com/AngryWeather/image-book/assets/105065960/0c11a046-6e55-40ce-baf9-f7631b724630)
