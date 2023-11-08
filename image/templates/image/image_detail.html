@@ -4,12 +4,19 @@
 <main class="col col-lg-6 mx-auto pt-3 px-lg-0 px-2">
   <article>
     <h2>{{ object.title }}</h2>
-    <div class="mb-3 ">
+    <div class="mb-3 d-flex gap-2">
       <a href="#">{{ object.author }}</a>
       <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+      {% if object.author == user %}
+      <div class="buttons ms-auto">
+        <button class="btn btn-success">Edit</button>
+        <button class="btn btn-danger">Delete</button>
+      </div>
+      {% endif %}
     </div>
     <img class="img-fluid" src="{{ object.image.url }}" alt="">
   </article>
+
   {% include "users/basic_form.html" with button_context="Comment" %}
   <section>
     <p class="fw-bold">{{ object.comment_set.all|length }}
