@@ -9,7 +9,7 @@
       <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
       {% if object.author == user %}
       <div class="buttons ms-auto">
-        <button class="btn btn-success">Edit</button>
+        <a href="{% url 'image-update' image.id %}" class="btn btn-success">Edit</a>
         <button class="btn btn-danger">Delete</button>
       </div>
       {% endif %}
