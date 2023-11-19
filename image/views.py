@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseForbidden
 from django.urls import reverse
 from django.views.generic import CreateView, ListView, DetailView
-from django.views.generic.edit import FormMixin
+from django.views.generic.edit import FormMixin, UpdateView
 
 from .forms import CreateCommentForm
 from .models import Image
@@ -55,3 +55,8 @@ class ImageDetailView(FormMixin, DetailView):
     def form_valid(self, form):
         form.save()
         return super(ImageDetailView, self).form_valid(form)
+
+
+class ImageUpdateView(UpdateView):
+    model = Image
+    fields = ['title', 'image']
