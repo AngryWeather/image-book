@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.http import HttpResponseForbidden
 from django.urls import reverse
 from django.views.generic import CreateView, ListView, DetailView
@@ -57,6 +57,12 @@ class ImageDetailView(FormMixin, DetailView):
         return super(ImageDetailView, self).form_valid(form)
 
 
-class ImageUpdateView(UpdateView):
+class ImageUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Image
     fields = ['title', 'image']
+
+    def test_func(self):
+        image = self.get_object()
+        if self.request.user == image.author:
+            return True
+        return False
