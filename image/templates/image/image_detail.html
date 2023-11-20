@@ -10,7 +10,7 @@
       {% if object.author == user %}
       <div class="buttons ms-auto">
         <a href="{% url 'image-update' image.id %}" class="btn btn-success">Edit</a>
-        <button class="btn btn-danger">Delete</button>
+        <a href="{% url 'image-delete' image.id %}" class="btn btn-danger">Delete</a>
       </div>
       {% endif %}
     </div>

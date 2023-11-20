@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.http import HttpResponseForbidden
 from django.urls import reverse
 from django.views.generic import CreateView, ListView, DetailView
-from django.views.generic.edit import FormMixin, UpdateView
+from django.views.generic.edit import FormMixin, UpdateView, DeleteView
 
 from .forms import CreateCommentForm
 from .models import Image
@@ -60,6 +60,19 @@ class ImageDetailView(FormMixin, DetailView):
 class ImageUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Image
     fields = ['title', 'image']
+
+    def test_func(self):
+        image = self.get_object()
+        if self.request.user == image.author:
+            return True
+        return False
+
+
+class ImageDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Image
+
+    def get_success_url(self):
+        return reverse('image-list')
 
     def test_func(self):
         image = self.get_object()

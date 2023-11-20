@@ -9,7 +9,9 @@
       {{ form|crispy }}
     </fieldset>
     <div class="form-group">
-      <button class="btn btn-outline-info">{{ button_context }}</button>
+      <button class="btn {% if button_context == 'Delete' %} btn-danger {% else %} btn-outline-info {% endif %}">
+        {{ button_context }}
+      </button>
     </div>
   </form>
 </div>
