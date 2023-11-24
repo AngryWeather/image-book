@@ -58,3 +58,13 @@ The homepage consists of all uploaded images displayed responsively with the new
 ![image](https://github.com/AngryWeather/image-book/assets/105065960/3b8a1276-9039-44c5-811b-a6676060cf3c)
 ![image](https://github.com/AngryWeather/image-book/assets/105065960/25c2bf48-46c1-4b0b-ad32-95c3e8eee4e2)
 
+### Edit and Delete Images
+Author of the object can see two buttons: Edit and Delete:
+![image](https://github.com/AngryWeather/image-book/assets/105065960/3e58f107-19ae-493f-9cae-c014b271c42a)
+
+Clicking edit brings the user to edit page:
+![image](https://github.com/AngryWeather/image-book/assets/105065960/7d2d5008-01c4-43fd-b3af-c91303d2958b)
+
+Clicking delete brings the user to the delete page:
+![image](https://github.com/AngryWeather/image-book/assets/105065960/ca36b212-de9a-4412-961a-be7ea111ac9c)
+
