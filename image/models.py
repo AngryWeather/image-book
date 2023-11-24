@@ -18,3 +18,4 @@ class Comment(models.Model):
     comment_author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField('Comment', max_length=255)
     comment_image = models.ForeignKey(Image, on_delete=models.CASCADE)
+    date_posted = models.DateTimeField(default=timezone.now)

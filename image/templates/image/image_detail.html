@@ -25,7 +25,10 @@
 
     {% for comment in object.comment_set.all %}
     <div class="p-0">
-      <a class="text-success small fw-bold text-decoration-none" href="#">{{ comment.comment_author }}</a>
+      <div class="d-flex"><a class="text-success small fw-bold text-decoration-none" href="#">
+        {{ comment.comment_author }}</a>
+        <p class="small text-muted ms-2">{{ comment.date_posted }}</p>
+      </div>
       <p class="pt-2">{{ comment.content }}</p>
     </div>
     <hr>
